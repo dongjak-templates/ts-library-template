@@ -6,6 +6,7 @@ jobs:
   template-cleanup:
     runs-on: ubuntu-latest
     name: Template Cleanup
+    if: github.event.repository.name != 'ts-library-template'
     permissions:
       contents: write
     steps:
