@@ -7,7 +7,7 @@
     },
     "repository": "{{repo_url}}",
     "scripts": {
-        "build": "rimraf dist && tsc  && vite build",
+        "build": "rimraf dist && dts-bundle-generator -o dist/{{repo_name}}.d.ts index.ts  && vite build",
         "semantic-release": "semantic-release"
     },
     "keywords": [],
@@ -33,10 +33,11 @@
         "@semantic-release/npm": "^11.0.0",
         "@semantic-release/release-notes-generator": "^11.0.7",
         "@types/node": "^20.6.2",
+        "dts-bundle-generator": "^8.1.2",
+        "handlebars": "^4.7.8",
         "rimraf": "^5.0.1",
         "semantic-release": "^22.0.0",
         "typescript": "^5.2.2",
-        "vite": "^4.5.0",
-        "handlebars": "^4.7.8"
+        "vite": "^4.5.0"
     }
 }
