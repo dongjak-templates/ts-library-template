@@ -1,3 +1,3 @@
-export default class TestB{
-    static b = 2
+export   enum TestB{
+    a,b,c,
 }

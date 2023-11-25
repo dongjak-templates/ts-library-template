@@ -1,6 +1,6 @@
 
 import Test from './src/Test'
-import TestB from './src/TestB'
+import {TestB} from './src/TestB'
 
 export {
     Test,
