@@ -15,11 +15,11 @@
         "src",
         "dist"
     ],
-    "typings": "./dist/types/index.d.ts",
+    "typings": "./dist/{{repo_name}}.d.ts",
     "module": "./dist/{{repo_name}}.es.js",
     "exports": {
         ".": {
-            "types": "./dist/types/index.d.ts",
+            "types": "./dist/{{repo_name}}.d.ts",
             "import": "./dist/{{repo_name}}.es.js"
         }
     },
