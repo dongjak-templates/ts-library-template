@@ -11,6 +11,7 @@
         "semantic-release": "semantic-release"
     },
     "keywords": [],
+    "type": "module",
     "files": [
         "dist"
     ],
