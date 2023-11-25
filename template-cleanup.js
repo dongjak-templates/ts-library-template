@@ -1,6 +1,6 @@
-const path = require("path");
-const fs = require('fs');
-const Handlebars = require('handlebars');
+import path from 'path'
+import fs from 'fs'
+import Handlebars from 'handlebars'
 
 // 获取当前命令行上下文路径
 const currentDirectory = process.cwd();
