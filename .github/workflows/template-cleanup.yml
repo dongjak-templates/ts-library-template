@@ -1,0 +1,52 @@
+name: Template Cleanup
+on:
+  - create
+  - workflow_dispatch
+jobs:
+  template-cleanup:
+    runs-on: ubuntu-latest
+    name: Template Cleanup
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 8
+          run_install: false
+
+      - name: Install dependencies
+        run: |
+          pnpm install
+
+      - name: Update package.json
+        run: |
+          node template-cleanup.js ${{ github.event.repository.name }} ${{ github.event.repository.owner.login }} ${{ github.event.repository.html_url }}
+
+      - name: Delete template-cleanup.yml
+        run: |
+          rm .github/workflows/template-cleanup.yml
+          rm template-cleanup.js
+
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Template cleanup"
+          # Push changes
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          branch: master
+          github_token: ${{ secrets.GITHUB_TOKEN }}
