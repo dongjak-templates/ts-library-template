@@ -12,9 +12,6 @@
     },
     "keywords": [],
     "type": "module",
-    "files": [
-        "dist"
-    ],
     "author": "{{author}}",
     "license": "MIT",
     "devDependencies": {

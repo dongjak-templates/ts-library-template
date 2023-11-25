@@ -1,3 +1,3 @@
-export default class Test{
+export  class Test{
    static a = 1
 }
