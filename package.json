@@ -15,14 +15,6 @@
     "files": [
         "dist"
     ],
-    "typings": "./dist/{{repo_name}}.d.ts",
-    "module": "./dist/{{repo_name}}.es.js",
-    "exports": {
-        ".": {
-            "types": "./dist/{{repo_name}}.d.ts",
-            "import": "./dist/{{repo_name}}.es.js"
-        }
-    },
     "author": "{{author}}",
     "license": "MIT",
     "devDependencies": {

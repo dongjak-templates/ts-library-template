@@ -9,8 +9,12 @@ const packageJsonPath = path.join(currentDirectory, 'package.json');
 const packageJsonFile = fs.readFileSync(packageJsonPath, 'utf8');
 const viteConfigPath = path.join(currentDirectory, 'vite.config.ts');
 const viteConfigFile =  fs.readFileSync(viteConfigPath, 'utf8');
+const preReleaseJsPath = path.join(currentDirectory, '.github/scripts/pre-release.js');
+const preReleaseJsFile =  fs.readFileSync(preReleaseJsPath, 'utf8');
 const packageJsonTemplate = Handlebars.compile(packageJsonFile);
 const viteConfigTemplate = Handlebars.compile(viteConfigFile);
+const preReleaseJsTemplate = Handlebars.compile(preReleaseJsFile);
+
 const data = {
     repo_name: process.argv[2],
     author: process.argv[3],
@@ -20,5 +24,7 @@ const data = {
 };
 const output = packageJsonTemplate(data);
 const output2 = viteConfigTemplate(data);
+const output3 = preReleaseJsTemplate(data);
 fs.writeFileSync(packageJsonPath, output);
 fs.writeFileSync(viteConfigPath, output2);
+fs.writeFileSync(preReleaseJsPath, output3);

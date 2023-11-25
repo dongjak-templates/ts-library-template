@@ -46,8 +46,26 @@ jobs:
           pnpm install
       - name: Build
         run: pnpm run build
+      - name: Pre Release
+        run: node ./.github/scripts/pre-release.js
       - name: Semantic Release
         run: pnpm run semantic-release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Post Release
+        run: node ./.github/scripts/post-release.js
+
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Template cleanup"
+          # Push changes
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          branch: master
+          github_token: ${{ secrets.GITHUB_TOKEN }}
