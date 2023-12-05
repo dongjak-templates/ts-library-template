@@ -4,4 +4,4 @@ node_modules
 **/.vuepress/.cache/**
 **/.vuepress/.temp/**
 docs/.vuepress/public/lib
-#pnpm-lock.yaml
+pnpm-lock.yaml
